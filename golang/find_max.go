@@ -11,11 +11,16 @@ func main() {
 }
 
 func find_max(arr []int) int {
-	max := arr[0]
+
+	// return if array is empty
 	if len(arr) == 0 {
 		return 0
 	}
-	for i := 0; i < len(arr); i++ {
+
+	// should initialize with first element of array
+	max := arr[0]
+	for i := 1; i < len(arr); i++ {
+		// if current item is greater than current max
 		if arr[i] > max {
 			max = arr[i]
 		}

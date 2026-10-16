@@ -1,3 +1,4 @@
+// closure 
 const printCounter = () => {
     let count = 0; 
 

@@ -1,15 +1,20 @@
 
 function findMax (arr) {
-  let max = arr[0];
-  if (!arr || arr.length === 0){
-    return undefined;
-  }
-  for (let i = 1; i < arr.length; i++){
-    if (arr[i] > max) {
-      max = arr[i];
+
+    // return if array is empty
+    if (!arr || arr.length === 0){
+        return undefined;
     }
-  }
-  return max
+
+	// should initialize with first element of array 
+    let max = arr[0];
+    for (let i = 1; i < arr.length; i++){
+        // if current item is greater than current max 
+        if (arr[i] > max) {
+        max = arr[i];
+        }
+    }
+    return max
 }
 
 const arr = [-4, -9, 2, -15, -7];
