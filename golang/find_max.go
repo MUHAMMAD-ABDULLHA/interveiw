@@ -1,15 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
-func main() {
-	arr := []int{2, 3, 5, 53, -3}
-	fmt.Println(find_max(arr))
-
-}
-
 func find_max(arr []int) int {
 
 	// return if array is empty
