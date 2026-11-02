@@ -70,4 +70,51 @@ func main() {
 		fmt.Printf("Array: %v | Maximum: %d\n",
 			arr, find_max(arr))
 	}
+
+	testCases := []struct {
+		input    string
+		expected bool
+		name     string
+	}{
+		{"()", true, "Simple parentheses"},
+		{"()[]{}", true, "Multiple bracket types"},
+		{"(]", false, "Mismatched brackets"},
+		{"([)]", false, "Incorrect nesting"},
+		{"([])", true, "Correct nested brackets"},
+		{"(((", false, "Unmatched opening brackets"},
+		{")))", false, "Unmatched closing brackets"},
+		{"(()", false, "Missing closing bracket"},
+		{"{[]}", true, "Multiple nested brackets"},
+		{"", false, "Empty string"},
+		{"[", false, "Single opening bracket"},
+		{"]", false, "Single closing bracket"},
+		{"({[]})", true, "Deep nesting"},
+		{"((()))", true, "Repeated nested parentheses"},
+		{"([{}])", true, "All bracket types nested"},
+	}
+
+	passed := 0
+	failed := 0
+
+	fmt.Println("======= VALID PARENTHESES TESTS =======")
+
+	for _, test := range testCases {
+
+		actual := isValid(test.input)
+
+		if actual == test.expected {
+			fmt.Printf("PASS: %-30s | Input: %-10q\n",
+				test.name, test.input)
+			passed++
+		} else {
+			fmt.Printf("FAIL: %-30s | Input: %-10q | Expected: %v | Got: %v\n",
+				test.name, test.input, test.expected, actual)
+			failed++
+		}
+	}
+
+	fmt.Println("\n======= TEST SUMMARY =======")
+	fmt.Printf("Total Tests: %d\n", len(testCases))
+	fmt.Printf("Passed: %d\n", passed)
+	fmt.Printf("Failed: %d\n", failed)
 }
