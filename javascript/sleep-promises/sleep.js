@@ -19,7 +19,7 @@ sleep(100).then(() => {
 
 // solution 
 async function sleep(millis){
-    return new Promise.all((resolve) => setTimeout(resolve, millis))
+    return new Promise((resolve) => setTimeout(resolve, millis))
 }
 
 
